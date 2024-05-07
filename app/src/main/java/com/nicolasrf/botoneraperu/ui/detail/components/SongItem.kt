@@ -19,7 +19,7 @@ import com.nicolasrf.botoneraperu.domain.model.Song
 @Composable
 fun SongItem(
     song: Song,
-    onPlayClick: () -> Unit,
+    onPlayClick: (String) -> Unit,
     onFavoriteClick: () -> Unit,
     modifier: Modifier
 ){
@@ -29,7 +29,7 @@ fun SongItem(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         PlayButton(
-            onPlayClick = { onPlayClick() },
+            onPlayClick = { onPlayClick(song.trackUrl) },
             modifier = modifier
         )
         Column(modifier = modifier.weight(2f).padding(8.dp)) {
