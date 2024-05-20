@@ -35,7 +35,7 @@ import com.nicolasrf.botoneraperu.ui.home.components.PersonItem
 @Composable
 fun DetailScreen(
     viewModel: DetailViewModel = hiltViewModel(),
-    onPlayClick: () -> Unit,
+    onPlayClick: (String) -> Unit,
     onFavoriteClick: () -> Unit,
     onBackClick: () -> Unit
 ) {
@@ -64,7 +64,9 @@ fun DetailScreen(
                 items(state.songs) { song ->
                     SongItem(
                         song = song,
-                        onPlayClick = { },
+                        onPlayClick = {
+                            onPlayClick(it)
+                        },
                         onFavoriteClick = { },
                         modifier = Modifier
                     )
